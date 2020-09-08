@@ -1,0 +1,15 @@
+header{
+    height: 400px;
+    width: 100%;
+    flex-direction: column;
+    justify-content :center;
+    align-items:center;
+    display: flex;
+   
+}
+
+header h2 {
+   /* background-color: #e5a63c; */
+   color:#ffffff;
+  }
+

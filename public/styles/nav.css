@@ -1,0 +1,19 @@
+nav{
+    color: #ffffff;
+    background-color: #4056A1;
+    height: 120px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav span {
+    font-family: 'Bungee', sans-serif;
+    font-size: xx-large;
+    padding: 1.5em;
+  }
+  
+  nav h3 {
+    margin: 0em;
+    padding: 1.5em;
+  }
