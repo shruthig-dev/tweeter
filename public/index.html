@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -34,7 +35,7 @@
     <span>tweeter</span>
     <h3><strong>Write</strong> a new tweet</h3>
   </nav>
-  <header>
+  <header id="user-header">
     <div>
       <img src="/images/profile-hex.png">
     </div>
@@ -45,7 +46,7 @@
   </header>
   <!-- Page-specific (main) content here -->
   <main class="container">
-    <section class="new-tweet" style="border :1px solid blue">
+    <section class="new-tweet">
       <!-- <h2>Compose Tweet</h2> -->
       <form class="tweet-form" Content-Type="application/x-www-form-urlencoded" action='/tweets/' method="POST">
         <label for="tweet-text">What are you humming about?</label>
@@ -55,67 +56,10 @@
           <output name="counter" class="counter" id="characterId" for="tweet-text">140</output>
         </footer>
       </form>
-      <div class="main-container" style="border :1px solid red">
-        <div id="" class="display-tweet">
-
-        </div>
-
-        <div id="tweetContainer" class="div">
-
-        </div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, doloribus! Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Error excepturi voluptatem ab dignissimos vero dolore nisi accusantium culpa
-        perspiciatis alias ipsam non rem, impedit voluptatum amet consequatur tempore earum repudiandae nostrum labore
-        incidunt, enim esse eaque. Voluptatem eos unde quod error odio, eligendi voluptate consequatur suscipit itaque
-        porro quis excepturi dolores, odit nobis. Magni debitis quas vel vitae veritatis commodi. Incidunt vero in
-        explicabo tempore, voluptates laboriosam excepturi aspernatur natus ex, asperiores error cum veritatis aliquam
-        quo voluptatum? Voluptatem vel saepe nulla quod ipsa officia impedit aut laboriosam cupiditate quia odit
-        repellat ratione dicta reprehenderit aliquid porro eaque fuga tempore nobis incidunt, perferendis consequuntur
-        quas ad iusto! Excepturi corrupti vitae beatae! Sint cum ipsum omnis, atque reprehenderit est non expedita
-        obcaecati accusantium aliquam officiis placeat corrupti repudiandae perferendis suscipit nisi quis beatae esse,
-        totam harum illo quisquam. Temporibus quam dicta quidem enim natus, repellendus et iure distinctio? Explicabo,
-        consequuntur voluptatem molestiae eius quisquam, laudantium odio quo provident fugiat dolorum, ducimus id
-        voluptatibus! Dolore molestias voluptates illo! Fugit velit debitis, reprehenderit, maxime tempore, rem
-        veritatis distinctio mollitia quam modi labore vel. Laboriosam, necessitatibus. Dolores, ratione optio dolor
-        autem voluptas excepturi quasi natus corrupti quia provident accusamus nisi! Nulla, laboriosam quia? Ut.
-      </div>
-      </div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, doloribus! Lorem, ipsum dolor sit amet
-      consectetur adipisicing elit. Error excepturi voluptatem ab dignissimos vero dolore nisi accusantium culpa
-      perspiciatis alias ipsam non rem, impedit voluptatum amet consequatur tempore earum repudiandae nostrum labore
-      incidunt, enim esse eaque. Voluptatem eos unde quod error odio, eligendi voluptate consequatur suscipit itaque
-      porro quis excepturi dolores, odit nobis. Magni debitis quas vel vitae veritatis commodi. Incidunt vero in
-      explicabo tempore, voluptates laboriosam excepturi aspernatur natus ex, asperiores error cum veritatis aliquam quo
-      voluptatum? Voluptatem vel saepe nulla quod ipsa officia impedit aut laboriosam cupiditate quia odit repellat
-      ratione dicta reprehenderit aliquid porro eaque fuga tempore nobis incidunt, perferendis consequuntur quas ad
-      iusto! Excepturi corrupti vitae beatae! Sint cum ipsum omnis, atque reprehenderit est non expedita obcaecati
-      accusantium aliquam officiis placeat corrupti repudiandae perferendis suscipit nisi quis beatae esse, totam harum
-      illo quisquam. Temporibus quam dicta quidem enim natus, repellendus et iure distinctio? Explicabo, consequuntur
-      voluptatem molestiae eius quisquam, laudantium odio quo provident fugiat dolorum, ducimus id voluptatibus! Dolore
-      molestias voluptates illo! Fugit velit debitis, reprehenderit, maxime tempore, rem veritatis distinctio mollitia
-      quam modi labore vel. Laboriosam, necessitatibus. Dolores, ratione optio dolor autem voluptas excepturi quasi
-      natus corrupti quia provident accusamus nisi! Nulla, laboriosam quia? Ut.
-      </div>
-      </div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, doloribus! Lorem, ipsum dolor sit amet
-      consectetur adipisicing elit. Error excepturi voluptatem ab dignissimos vero dolore nisi accusantium culpa
-      perspiciatis alias ipsam non rem, impedit voluptatum amet consequatur tempore earum repudiandae nostrum labore
-      incidunt, enim esse eaque. Voluptatem eos unde quod error odio, eligendi voluptate consequatur suscipit itaque
-      porro quis excepturi dolores, odit nobis. Magni debitis quas vel vitae veritatis commodi. Incidunt vero in
-      explicabo tempore, voluptates laboriosam excepturi aspernatur natus ex, asperiores error cum veritatis aliquam quo
-      voluptatum? Voluptatem vel saepe nulla quod ipsa officia impedit aut laboriosam cupiditate quia odit repellat
-      ratione dicta reprehenderit aliquid porro eaque fuga tempore nobis incidunt, perferendis consequuntur quas ad
-      iusto! Excepturi corrupti vitae beatae! Sint cum ipsum omnis, atque reprehenderit est non expedita obcaecati
-      accusantium aliquam officiis placeat corrupti repudiandae perferendis suscipit nisi quis beatae esse, totam harum
-      illo quisquam. Temporibus quam dicta quidem enim natus, repellendus et iure distinctio? Explicabo, consequuntur
-      voluptatem molestiae eius quisquam, laudantium odio quo provident fugiat dolorum, ducimus id voluptatibus! Dolore
-      molestias voluptates illo! Fugit velit debitis, reprehenderit, maxime tempore, rem veritatis distinctio mollitia
-      quam modi labore vel. Laboriosam, necessitatibus. Dolores, ratione optio dolor autem voluptas excepturi quasi
-      natus corrupti quia provident accusamus nisi! Nulla, laboriosam quia? Ut.
-      </div>
+    </section>
+    <section id="tweets-container" class="new-tweet">
 
     </section>
-
   </main>
 </body>
 
