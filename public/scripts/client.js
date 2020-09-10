@@ -78,13 +78,23 @@ $(document).ready(function () {
   //Twitter Form submission 
   $(".tweet-form").on('submit', function (evt) {
     evt.preventDefault();
-    const serializeTweetData = $('#tweet-text').serialize();
-    $.ajax({
-      url: '/tweets/',
-      method: 'POST',
-      data: serializeTweetData
-    }).then(function () {
-      loadTweets();
-    });
+    let tweetText = $('#tweet-text').val();
+
+    if (!tweetText) {
+      alert("Please enter tweet");
+    }
+    else if (tweetText.length > 140) {
+      alert("Tweet character should be less than 140 characters.");
+    }
+    else {
+      const serializeTweetData = $('#tweet-text').serialize();
+      $.ajax({
+        url: '/tweets/',
+        method: 'POST',
+        data: serializeTweetData
+      }).then(function () {
+        loadTweets();
+      });
+    }
   });
 });
