@@ -1,21 +1,28 @@
-nav{
-    color: #ffffff;
-    background-color: #4056A1;
-    height: 120px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
+nav {
+  color: #ffffff;
+  background-color: #77793a;
+  height: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
 }
 
 nav span {
-    font-family: 'Bungee', sans-serif;
-    font-size: xx-large;
-    padding: 1.5em;
+  font-family: "Bungee", sans-serif;
+  font-size: xx-large;
+  padding: 1.5em;
+}
+
+nav h3 {
+  margin: 0em;
+  padding: 1.5em;
+}
+
+@media only screen and (min-width: 768px) {
+  nav {
+    background-color: #4056a1;
   }
-  
-  nav h3 {
-    margin: 0em;
-    padding: 1.5em;
-  }
+}
+

@@ -29,19 +29,54 @@ const data = [
   }
 ]
 
+//Handle vulnerable to XSS
+const escape = function (str) {
+  let div = document.createElement('div');
+
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+const formatDate = function (date) {
+
+  var seconds = Math.floor((new Date() - date) / 1000);
+
+  var interval = seconds / 31536000;
+
+  if (interval > 1) {
+    return Math.floor(interval) + " years";
+  }
+  interval = seconds / 2592000;
+  if (interval > 1) {
+    return Math.floor(interval) + " months";
+  }
+  interval = seconds / 86400;
+  if (interval > 1) {
+    return Math.floor(interval) + " days";
+  }
+  interval = seconds / 3600;
+  if (interval > 1) {
+    return Math.floor(interval) + " hours";
+  }
+  interval = seconds / 60;
+  if (interval > 1) {
+    return Math.floor(interval) + " minutes";
+  }
+  return Math.floor(seconds) + " seconds";
+}
+
 //create tweet content dynamically
 const createTweetElement = function (tweet) {
   let $tweet = `
           <article class="tweetContainer">
             <header>
             <div class="user-profile">
-              <img src="${tweet.user.avatars}"></img>
+              <img src=${tweet.user.avatars}></img>
             <span class = "user-name">${tweet.user.name}</span>
          </div>
          <p class ="tweet-name">${tweet.user.handle}</p>
             </header>
-            <p class="tweet-text">"${tweet.content.text}"</p>
-            <footer><span>${tweet.created_at}</span>
+            <p class="tweet-text">${escape(tweet.content.text)}</p>
+            <footer><span>${formatDate(tweet.created_at)}</span>
             <span>icons</span>
             </footer>
           </article>
@@ -50,12 +85,13 @@ const createTweetElement = function (tweet) {
 }
 
 const renderTweets = function (tweets) {
+  $('#display-tweets').empty();
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
-  for (const tweetData of tweets) {
-    const $tweet = createTweetElement(tweetData);
-    $('#tweets-container').append($tweet);
+  for (let i = tweets.length - 1; i >= 0; i--) {
+    const $tweet = createTweetElement(tweets[i]);
+    $('#display-tweets').append($tweet);
   }
 }
 
@@ -71,9 +107,19 @@ const loadTweets = function () {
       renderTweets(response)
     });
 }
-
+function showCreateTweet() {
+  $("#create-tweet").show();
+}
 $(document).ready(function () {
   loadTweets();
+
+  $("#create-tweet").hide();
+  $("#error-message").hide();
+
+  setInterval(function () {
+    $(".arrow").animate({ marginTop: 10 });
+    $(".arrow").animate({ marginTop: 0 });
+  }, 1000);
 
   //Twitter Form submission 
   $(".tweet-form").on('submit', function (evt) {
@@ -81,10 +127,12 @@ $(document).ready(function () {
     let tweetText = $('#tweet-text').val();
 
     if (!tweetText) {
-      alert("Please enter tweet");
+      $("#error-text").html("Please enter tweet");
+      $("#error-message").show();
     }
     else if (tweetText.length > 140) {
-      alert("Tweet character should be less than 140 characters.");
+      $("#error-text").html("Tweet character should be less than 140 characters");
+      $("#error-message").show();
     }
     else {
       const serializeTweetData = $('#tweet-text').serialize();
@@ -94,6 +142,9 @@ $(document).ready(function () {
         data: serializeTweetData
       }).then(function () {
         loadTweets();
+        $("#error-text").html("");
+        $("#error-message").hide();
+        $('#tweet-text').val('');
       });
     }
   });

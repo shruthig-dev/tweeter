@@ -1,23 +1,14 @@
-.new-tweet  {
-  font-family: "Source Sans Pro", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 15px;
-  width: 100%;
-}
 .tweet-form {
-  width: 70%;
+  width: 30em;
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 #tweet-text {
   border-style: none;
   border-bottom: 4px solid #777373;
   background-color: inherit;
   outline: none;
-  font-size: 80%;
   height: 30;
 }
 
@@ -26,7 +17,11 @@
   color: white;
   border: none;
   padding: 5px;
-  
+  outline: none;
+}
+.btn-submit:hover {
+  background-color: #4caf50;
+  color: white;
 }
 footer {
   font-family: "Bungee", sans-serif;
@@ -35,11 +30,71 @@ footer {
   margin-top: 10px;
 }
 
-.invalid
-{
+.invalid {
   color: red;
 }
-.display-tweet
-{
-  margin:5px;
+.display-tweet {
+  margin: 5px;
+}
+#error-message {
+  width: 30em;
+  background-color: #dc7676;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+#error-text img {
+  width: 100px;
+  height: 100px;
+}
+
+.create-tweet-link {
+  cursor: pointer;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Laptops / Desktops: minimum width of 1024px */
+@media only screen and (min-width: 1024px) {
+  #main-container {
+    display: flex;
+    padding: 135px;
+    margin-top: 75px;
+  }
+  .tweet-form {
+    margin: 12px;
+  }
+}
+/* Tablet: minimum width of 768px to maximum width of 1024px */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  #main-container {
+    display: flex;
+    padding: 135px;
+    margin-top: 75px;
+  }
+  .tweet-form {
+    margin: 12px;
+  }
+}
+
+/* Smartphones: minimum width of 320px to maximum width of around 420px */
+@media only screen and (min-width: 320px) and (max-width: 420px) {
+  .tweetContainer {
+    width: 318px;
+  }
+  .tweet-form {
+    width: 300px;
+  }
+  #user-header {
+    margin-top: 120px;
+  }
+  #error-message {
+    width: 300px;
+  }
+  p {
+    font-size: 18px;
+  }
 }
