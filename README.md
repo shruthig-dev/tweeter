@@ -11,6 +11,14 @@ This repository is the starter code for the project: Students will fork and clon
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
 
+## Final Product
+!["Screenshot of Dashboard page"](docs/IndexPage.PNG)
+!["Screenshot of Compose tweet page"](docs/ComposeTweet.PNG)
+!["Screenshot of Empty tweet error pmessageage"](docs/EmptyTweetError.PNG)
+!["Screenshot of New tweet page"](docs/NewTweet.PNG)
+!["Screenshot of Tweet character exceed error message"](docs/TweetCharacterExceedError.PNG)
+!["Screenshot of Compose Tweet Link"](docs/ComposeTweetLink.PNG)
+
 ## Dependencies
 
 - Express
